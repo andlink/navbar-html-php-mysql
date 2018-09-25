@@ -1,6 +1,6 @@
 ## HTML NAVBAR stored in MySQL database
 
-Easy PHP script that create a NAVBAR stored in a MySQL database
+Easy PHP script that create NAVBAR and SITEMAP.XML from record stored in a MySQL database
 
 ### PHP
 GET navbar list
