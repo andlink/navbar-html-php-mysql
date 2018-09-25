@@ -1,51 +1,29 @@
-## NAVBAR 
+## HTML NAVBAR stored in MySQL database
 
-Easy PHP script for HTML login. The sessions are storen in a MySQL database
-
-### HTML
-Form for login:
-```html
-<form action="login.php" method="post">
-	<label for="uname">Username</label>
-	<input type="text" placeholder="Enter Username" name="uname" required>			
-	<label for="passw">Password</label>
-	<input type="password" placeholder="Enter Password" name="passw" required>
-
-	<button type="submit">Login</button>
-</form>
-```
-
-Form for logout:
-```html
-<form action="logout.php">			
-	<button type="submit">Logout</button>
-</form>
-```
-
+Easy PHP script that create a NAVBAR stored in a MySQL database
 
 ### PHP
-Login function
+GET navbar list
 ```php
-auth_login($_POST['uname'],$_POST['passw']);
+$navbarlist = navbar_list('en');
 ```
 
-Logout function
+CREATE sitemap.xml
 ```php
-auth_logout();
+$sitemap_xml = navbar_sitemap_xml('en');
 ```
-
 
 ### MySQL database
-#### TABLE session
-| Column Name   | Type     |
-| ------------- | -------- |
-| uid           | char(32) |
-| iduser        | int(11)  |
-| creation_date | datetime |
-
-#### TABLE user 
-| Column Name   | Type        |
-| ------------- | ----------- |
-| iduser        | int(11)     |
-| username      | varchar(45) |
-| password      | varchar(32) |
+#### TABLE navbar
+| Column Name      | Type         |
+| ---------------- | ------------ |
+| idnavbar         | int(11)      |
+| nav_language     | varchar(2)   |
+| nav_pos          | smallint(5)  |
+| nav_name         | varchar(45)  |
+| nav_link         | varchar(255) |
+| meta_title       | varchar(45)  |
+| meta_description | varchar(255) |
+| meta_robots      | varchar(45)  |
+| meta_googlebot   | varchar(45)  |
+| meta_google      | varchar(45)  |
